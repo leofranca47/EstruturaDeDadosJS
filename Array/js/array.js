@@ -12,8 +12,10 @@
 
 
 // for(var i = 0; i < daysOfWeek.length; i++){
-//     //console.log(daysOfWeek[i])
+//     console.log(daysOfWeek[i])
 // }
+
+// daysOfWeek.forEach((value, key) => console.log(`${key}-${value}`)) 
 
 // var fibonacci = []
 // fibonacci[0] = 0
@@ -23,6 +25,11 @@
 // for(var i = 3; i < 20; i++){
 //     fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2]
 // }
+
+// console.log(fibonacci.length)
+// fibonacci.forEach((value, key) => {
+//     console.log(`${key}-${value}`)
+// });
 
 // for(var i = 0; i < fibonacci.length; i++){
 //     console.log(fibonacci[i])
@@ -80,29 +87,34 @@
 //         console.log(avgTempWeek[i][a])
 //     }
 // }
+// avgTempWeek.forEach((value, key) => {
+//     value.forEach(value => console.log(value))
+// })
 
 //arrays tridimensionais
-var month = []
+// var month = []
 
-var firstWeeks = []
-var lastWeeks = []
+// var firstWeeks = []
+// var lastWeeks = []
 
-var avgTempWeek1 = [33, 25.2, 19, 27, 23.4, 41.6, 25]
-var avgTempWeek2 = [41, 29, 21.2, 19.5, 17, 33.8, 58]
+// var avgTempWeek1 = [33, 25.2, 19, 27, 23.4, 41.6, 25]
+// var avgTempWeek2 = [41, 29, 21.2, 19.5, 17, 33.8, 58]
 
-var avgTempWeek3 = [78, 56.2, 10, 24, 19.4, 8, 30]
-var avgTempWeek4 = [12, 13, 15.2, 14.5, 17, 27.8, 41]
+// var avgTempWeek3 = [78, 56.2, 10, 24, 19.4, 8, 30]
+// var avgTempWeek4 = [12, 13, 15.2, 14.5, 17, 27.8, 41]
 
-firstWeeks = [avgTempWeek1, avgTempWeek2]
-lastWeeks = [avgTempWeek3, avgTempWeek4]
+// firstWeeks = [avgTempWeek1, avgTempWeek2]
+// lastWeeks = [avgTempWeek3, avgTempWeek4]
 
-month = [firstWeeks, lastWeeks]
+// month = [firstWeeks, lastWeeks]
 
-for(var i = 0 ; i < month.length; i++){
-    for(var a = 0; a < month[i].length; a++){
-        for(var b = 0; b < month[i][a].length; b++){
-            console.log(month[i][a][b])
-        }
+// console.log(month[0][0][0])
+
+// for(var i = 0 ; i < month.length; i++){
+//     for(var a = 0; a < month[i].length; a++){
+//         for(var b = 0; b < month[i][a].length; b++){
+//             console.log(month[i][a][b])
+//         }
         
-    }
-}
+//     }
+// }
