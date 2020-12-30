@@ -93,23 +93,23 @@
 
 //converte para qualquer base utilizando pilha
 
-function baseConverter(decNumber, base){
-    var restStack = [],
-    rest,
-    baseString= '',
-    digits = '0123456789ABCDEF';
+// function baseConverter(decNumber, base){
+//     var restStack = [],
+//     rest,
+//     baseString= '',
+//     digits = '0123456789ABCDEF';
 
-    while(decNumber > 0){
-        rest = Math.floor(decNumber % base);
-        restStack.push(rest);
-        decNumber = Math.floor(decNumber / base);
-    }
+//     while(decNumber > 0){
+//         rest = Math.floor(decNumber % base);
+//         restStack.push(rest);
+//         decNumber = Math.floor(decNumber / base);
+//     }
 
-    while(restStack.length > 0){
-        baseString += digits[restStack.pop()];
-    }
+//     while(restStack.length > 0){
+//         baseString += digits[restStack.pop()];
+//     }
 
-    return baseString;
-}
+//     return baseString;
+// }
 
-console.log(baseConverter(45, 16));
+// console.log(baseConverter(45, 16));

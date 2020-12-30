@@ -104,5 +104,5 @@ function hotPotato(nameList, num){
 }
 
 var names = ['joão', 'josé', 'maria', 'ana', 'lucas'];
-var winner = hotPotato(names, 7);
+var winner = hotPotato(names, 2);
 console.log('The winner is: '+ winner);
