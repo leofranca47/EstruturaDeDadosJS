@@ -1,11 +1,13 @@
-function LinkedList(){
+function DoublyLinkedList(){
     var Node = function(element){
         this.element = element
         this.next = null
+        this.prev = null
     }
 
     var length = 0
     var head = null
+    var tail = null
 
     this.append = function(element){
         //adiciona um elemento no final da lista
@@ -14,6 +16,7 @@ function LinkedList(){
 
         if(head === null){
             head = node
+            tail = node
         } else{
             current = head
 
@@ -22,6 +25,7 @@ function LinkedList(){
             }
 
             current.next = node
+            tail = node
         }
         length++
     }
@@ -35,8 +39,19 @@ function LinkedList(){
             index = 0
 
             if(position === 0){
-                node.next = current
-                head = node
+                if(!head){
+                    head = node
+                    tail = node
+                } else{
+                    node.next = current
+                    current.prev = node
+                    head = node
+                }
+            }else if(position === length){
+                current = tail
+                current.next = node
+                node.prev = current
+                tail = node
             } else{
                 while(index++ < position){
                     previous = current
@@ -44,35 +59,19 @@ function LinkedList(){
                 }
                 node.next = current
                 previous.next = node
+                current.prev = node
+                node.prev = previous
             }
             length++
             return true
         } else{
             return false
-        }
+        }        
     }
 
     this.removeAt = function(position){
         //remove o elemento de uma posição específica
-        if(position > -1 && position < length){
-            var current = head,
-            previous,
-            index = 0
-
-            if(position === 0){
-                head = current.next
-            } else{
-                while(index++ < position){
-                    previous = current
-                    current = current.next
-                }
-                previous.next = current.next
-            }
-            length--
-            return current.element
-        } else{
-            return null
-        }
+        
     }
 
     this.remove = function(element){
@@ -130,20 +129,11 @@ function LinkedList(){
     }
 }
 
-var ll = new LinkedList()
-ll.append('joão')
-ll.append('jose')
-ll.append('maria')
-ll.print()
-ll.removeAt(1)
-ll.print()
-ll.insert(0, 'carlos')
-ll.print()
-ll.insert(2, 'ana')
-ll.print()
-console.log(ll.indexOf('carlos'))
-ll.remove('joão')
-ll.print()
-console.log(ll.isEmpty())
-console.log(ll.size())
-console.log(ll.getHead())
+var dll = new DoublyLinkedList()
+dll.append('João')
+dll.append('José')
+dll.append('Maria')
+dll.insert(0, 'Carlos')
+dll.insert(4, 'Lucas')
+dll.insert(2, 'Ana')
+dll.print()
