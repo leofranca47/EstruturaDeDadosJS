@@ -83,14 +83,30 @@ function Set(){
             }
         }
 
-        otherValues = otherSet.values()
+        // o codigo abaixo eu coloquei para adicionar os elementos diferentes de b também
+        // otherValues = otherSet.values()
 
-        for(var i = 0; i < otherValues.length; i++){
-            if(!this.has(otherValues[i])){
-                differenceSet.add(otherValues[i])
-            }
-        }
+        // for(var i = 0; i < otherValues.length; i++){
+        //     if(!this.has(otherValues[i])){
+        //         differenceSet.add(otherValues[i])
+        //     }
+        // }
         return differenceSet
+    }
+
+    this.subset = function(otherSet){
+        if(this.size() > otherSet.size()){
+            return false
+        } else {
+            var values = this.values()
+
+            for(var i = 0; i < values.length; i++){
+                if(!otherSet.has(values[i])){
+                    return false
+                }
+            }
+            return true
+        }
     }
 
     this.print = function(value){
@@ -150,8 +166,8 @@ setA.add(3)
 var setB = new Set()
 setB.add(2)
 setB.add(3)
-setB.add(4)
-setB.add(8)
+setB.add(1)
+// setB.add(8)
 
-var differenceAB = setA.difference(setB)
-console.log(differenceAB.values())
+var subsetAB = setA.subset(setB)
+console.log(subsetAB)
