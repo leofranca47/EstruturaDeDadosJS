@@ -56,10 +56,40 @@ function Dictionary(){
     }
 }
 
-var dic = new Dictionary()
+// var dic = new Dictionary()
 
-dic.set('gandalf', 'gandalf@email.com')
-dic.set('john', 'john@email.com')
-dic.set('tyrion', 'tyrion@email.com')
+// dic.set('gandalf', 'gandalf@email.com')
+// dic.set('john', 'john@email.com')
+// dic.set('tyrion', 'tyrion@email.com')
 
-console.log(dic.has('john'))
+// console.log(dic.has('john'))
+
+function HashTable(){
+    var table = []
+
+    this.put = function(key, value){
+        // insere elemento
+        var position = loseloseHashCode(key)
+        console.log(position + ' ' + key)
+        table[position] = value
+    }
+
+    this.remove = function(key){
+        // remove elemento
+        table[loseloseHashCode(key)] = undefined
+    }
+
+    this.get = function(key){
+        // retorna um valor
+        return table[loseloseHashCode(key)]
+    }
+
+    var loseloseHashCode = function(key){
+        // retorna hash (valor numérico)
+        var hash = 0
+        for(var i = 0; i < key.length; i++){
+            hash += key.charCodeAt(i)
+        }
+        return hash % 37
+    }
+}
