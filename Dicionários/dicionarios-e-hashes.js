@@ -92,6 +92,18 @@ function HashTable(){
         }
         return hash % 37
     }
+
+    // this.size = function(){
+    //     return table.length
+    // }
+
+    this.print = function(){
+        for(var i = 0; i < table.length; i++){
+            if(table[i] !== undefined){
+                console.log(i + ' : ' + table[i])
+            }
+        }
+    }
 }
 
 var hash = new HashTable()
@@ -99,8 +111,10 @@ var hash = new HashTable()
 hash.put('Gandalf', 'gandalf@email.com')
 hash.put('John', 'johnsnow@email.com')
 hash.put('Tyrion', 'tyrion@email.com')
-
-hash.remove('Gandalf')
-
-console.log(hash.get('Gandalf'))
-console.log(hash.get('Tyrion'))
+hash.put('leo', 'leo@email.com')
+hash.put('joao', 'joao@email.com')
+hash.put('diego', 'diego@email.com')
+hash.put('liliane', 'liliane@email.com')
+hash.put('juliano', 'juliano@email.com')
+console.log('............')
+hash.print()
