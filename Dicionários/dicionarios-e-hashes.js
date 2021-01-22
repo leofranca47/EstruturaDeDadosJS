@@ -124,10 +124,10 @@ function LinkedList(){
         return string
     }
 
-    this.print = function(){
-        //imprime no console
-        console.log(this.toString())
-    }
+    // this.print = function(){
+    //     //imprime no console
+    //     console.log(this.toString())
+    // }
 }
 
 function Dictionary(){
@@ -317,5 +317,4 @@ hash.put('juliano', 'juliano@email.com')
 hash.put('davi', 'davi@email.com')
 hash.put('ana', 'ana@email.com')
 hash.put('jane', 'jane@email.com')
-console.log('............')
 hash.print()
