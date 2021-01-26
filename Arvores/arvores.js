@@ -121,15 +121,60 @@ function BinarySearchTree(){
         return null
     }
 
-    this.inOrderTraverse = function(){
+    this.inOrderTraverse = function(callback){
         // visita todos os nós da árvore usando um percurso em ordem
+        inOrderTraverseNode(root, callback)
+    }
+
+    var inOrderTraverseNode = function(node, callback){
+        if(node !== null){
+            inOrderTraverseNode(node.left, callback)
+            callback(node.key)
+            inOrderTraverseNode(node.right, callback)
+        }
     }
 
     this.preOrderTraverse = function(){
         // visita todos os nós da árvore usando um percurso pré ordem
+        preOrderTraverseNode(root, callback)
+    }
+
+    var preOrderTraverseNode = function(node, callback){
+        if(node !== null){
+            callback(node.key)
+            preOrderTraverseNode(node.left, callback)
+            preOrderTraverseNode(node.right, callback)
+        }
     }
 
     this.postOrderTraverse = function(){
         // visita todos os nós da árvore usando um percurso pós ordem
+        postOrderTraverseNode(root, callback)
+    }
+
+    var postOrderTraverseNode = function(node, callback){
+        if(node !== null){
+            postOrderTraverseNode(node.left, callback)
+            postOrderTraverseNode(node.right, callback)
+            callback(node.key)
+        }
     }
 }
+
+var tree = new BinarySearchTree()
+tree.insert(11)
+tree.insert(7)
+tree.insert(15)
+tree.insert(5)
+tree.insert(3)
+tree.insert(9)
+tree.insert(8)
+tree.insert(10)
+tree.insert(13)
+tree.insert(12)
+tree.insert(14)
+tree.insert(20)
+tree.insert(18)
+tree.insert(25)
+tree.insert(6)
+
