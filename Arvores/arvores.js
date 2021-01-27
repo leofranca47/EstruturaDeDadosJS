@@ -84,6 +84,13 @@ function BinarySearchTree(){
             return node
         }
     }
+    
+    var findMinNode = function(node){
+        while(node && node.left !== null){
+            node = node.left
+        }
+        return node
+    }
 
     this.min = function(){
         // retorna a menor chave
@@ -95,16 +102,11 @@ function BinarySearchTree(){
             while(node && node.left !== null){
                 node = node.left
             }
-            return null
+            return node.key
         }
+        return null
     }
 
-    var findMinNode = function(node){
-        while(node && node.left !== null){
-            node = node.left
-        }
-        return node
-    }
 
     this.max = function(){
         // retorna a maior chave
@@ -178,3 +180,8 @@ tree.insert(18)
 tree.insert(25)
 tree.insert(6)
 
+console.log(tree.search(13))
+console.log(tree.search(16))
+
+console.log(tree.min())
+console.log(tree.max())
