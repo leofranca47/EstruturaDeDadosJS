@@ -31,7 +31,7 @@ function BinarySearchTree(){
                 insertNode(node.right, newNode)
             }
         }
-    } 
+    }
 
     this.search = function(key){
         // busca uma chave
@@ -84,7 +84,7 @@ function BinarySearchTree(){
             return node
         }
     }
-    
+
     var findMinNode = function(node){
         while(node && node.left !== null){
             node = node.left
@@ -136,7 +136,7 @@ function BinarySearchTree(){
         }
     }
 
-    this.preOrderTraverse = function(){
+    this.preOrderTraverse = function(callback){
         // visita todos os nós da árvore usando um percurso pré ordem
         preOrderTraverseNode(root, callback)
     }
@@ -149,7 +149,7 @@ function BinarySearchTree(){
         }
     }
 
-    this.postOrderTraverse = function(){
+    this.postOrderTraverse = function(callback){
         // visita todos os nós da árvore usando um percurso pós ordem
         postOrderTraverseNode(root, callback)
     }
@@ -161,6 +161,10 @@ function BinarySearchTree(){
             callback(node.key)
         }
     }
+}
+
+function printNode(value){
+    console.log(value)
 }
 
 var tree = new BinarySearchTree()
@@ -180,8 +184,10 @@ tree.insert(18)
 tree.insert(25)
 tree.insert(6)
 
-console.log(tree.search(13))
-console.log(tree.search(16))
+// console.log(tree.search(13))
+// console.log(tree.search(16))
 
-console.log(tree.min())
-console.log(tree.max())
+// console.log(tree.min())
+// console.log(tree.max())
+
+tree.preOrderTraverse(printNode)
