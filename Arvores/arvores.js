@@ -136,7 +136,7 @@ function BinarySearchTree(){
         }
     }
 
-    this.preOrderTraverse = function(callback){
+    this.preOrderTraverse = function(callback ){
         // visita todos os nós da árvore usando um percurso pré ordem
         preOrderTraverseNode(root, callback)
     }
@@ -190,4 +190,8 @@ tree.insert(6)
 // console.log(tree.min())
 // console.log(tree.max())
 
-tree.preOrderTraverse(printNode)
+tree.remove(6)
+tree.remove(5)
+tree.remove(15)
+
+tree.inOrderTraverse(printNode)
