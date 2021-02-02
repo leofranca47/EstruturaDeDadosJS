@@ -56,6 +56,40 @@ function Dictionary(){
     }
 }
 
+function Queue(){
+    var items = [];
+
+    this.enqueue = function(element){
+        //adiciona um novo item
+        items.push(element);
+    }
+
+    this.dequeue = function(){
+        //remove um item
+        return items.shift();
+    }
+
+    this.front = function(){
+        //retorna o primeiro elemento da fila
+        return items [0];
+    }
+
+    this.isEmpty = function(){
+        //verifica se a fila está vazia
+        return items.length === 0;
+    }
+
+    this.size = function(){
+        //retorna o tamanho da fila
+        return items.length;
+    }
+
+    this.print = function(){
+        //imprimir a fila no console
+        console.log(items.toString());
+    }
+}
+
 function Graph(){
     var vertices = []
     var adjList = new Dictionary()
@@ -82,7 +116,64 @@ function Graph(){
         }
         return s
     }
+
+    var initializeColor = function(){
+        var color = []
+        for(var i = 0; i < vertices.length; i++){
+            color[vertices[i]] = 'white'
+        }
+        return color
+    }
+
+    this.bfs = function(v, callback){
+        var color = initializeColor(),
+        queue = new Queue();
+        queue.enqueue(v)
+
+        while(!queue.isEmpty()){
+            var u = queue.dequeue(),
+            neighbors = adjList.get(u)
+            color[u] = 'grey'
+            for(var i = 0; i < neighbors.length; i++){
+                var w = neighbors[i]  
+                if(color[w] === 'white'){
+                    color[w] = 'grey'
+                    queue.enqueue(w)
+                }         
+            }
+            color[u] = 'black'
+            callback(u)
+        }
+    }
+
+    this.dfs = function(callback){
+        var color = initializeColor()
+        for(var i = 0; i < vertices.length; i++){
+            if(color[vertices[i]] === 'white'){
+                dfsVisit(vertices[i], color, callback)
+            }
+        }
+    }
+
+    var dfsVisit = function(u, color, callback){
+        color[u] = 'grey'
+        callback(u)
+
+        var neighbors = adjList.get(u)
+        for(var i = 0; i < neighbors.length; i++){
+            var w = neighbors[i]
+            if(color[w] === 'white'){
+                dfsVisit(w, color, callback)
+            }
+        }
+        color[u] = 'black'
+    }
 }
+
+function printNode(value){
+    console.log('Visited vertex: '+ value)
+}
+
 
 var graph = new Graph()
 var myVertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
@@ -101,4 +192,6 @@ graph.addEdge('B','E')
 graph.addEdge('B','F')
 graph.addEdge('E','I')
 
-console.log(graph.toString())
+// console.log(graph.toString())
+// graph.bfs(myVertices[0], printNode)
+graph.dfs(printNode)
