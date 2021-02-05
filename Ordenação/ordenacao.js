@@ -34,6 +34,19 @@ function ArrayList(){
         }
     }
 
+    this.insertionSort = function(){
+        var j, temp
+        for(var i = 1; i < array.length; i++){
+            j = i
+            temp = array[i]
+            while(j > 0 && array[j - 1] > temp){
+                array[j] = array[j - 1]
+                j--
+            }
+            array[j] = temp
+        }
+    }
+
     var swap = function(array, index1, index2){
         var aux = array[index1]
         array[index1] = array[index2]
@@ -48,5 +61,6 @@ al.insert(3)
 al.insert(2)
 al.insert(1)
 // al.bubbleSort()
-al.selectionSort()
+// al.selectionSort()
+al.insertionSort()
 console.log(al.toString())
