@@ -116,12 +116,13 @@ function ArrayList(){
             while(array[j] > pivot){
                 j--
             }
+            if(i <= j){
+                swap(array, i, j)
+                i++
+                j--
+            }
         }
-        if(i <= j){
-            swap(array, i, j)
-            i++
-            j--
-        }
+        return i
     }
 
     var swap = function(array, index1, index2){
@@ -143,5 +144,6 @@ al.insert(1)
 // al.bubbleSort()
 // al.selectionSort()
 // al.insertionSort()
-al.mergeSort()
+// al.mergeSort()
+al.quickSort()
 console.log(al.toString())
